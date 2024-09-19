@@ -7,6 +7,7 @@ const NoteForm = () => {
     const [title, setTitle] = useState('');
     const [contents, setContent] = useState('');
     const [error, setError] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,6 +27,7 @@ const NoteForm = () => {
         // Check for response
         if (!response) {
             setError(json.error);
+            setEmptyFields(json.emptyFields);
         }
         if (response.ok) {
             // Reset states
