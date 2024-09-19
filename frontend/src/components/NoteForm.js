@@ -46,14 +46,16 @@ const NoteForm = () => {
             <input 
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
-                value={title} 
+                value={title}
+                className={emptyFields.includes('load') ? 'error' : ''} 
             />
 
             <label>Note Content</label>
             <input 
                 type="text"
                 onChange={(e) => setContent(e.target.value)}
-                value={contents} 
+                value={contents}
+                className={emptyFields.includes('load') ? 'error' : ''}  
             />
             <button>Add Note</button>
             {error && <div className="error">{error}</div>}
